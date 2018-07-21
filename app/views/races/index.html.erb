@@ -1,27 +1,82 @@
-<p id="notice"><%= notice %></p>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Rassen
+    <small>Übersicht</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Stammdaten</a></li>
+    <li class="active">Rassen</li>
+    <li class="active">Übersicht</li>
+  </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+  <% if notice %>
+    <div class="alert alert-success alert-dismissable">
+      <i class="fa fa-check"></i>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <b><%= notice %></b>
+    </div>
+  <% end %>
 
-<h1>Races</h1>
+  <% if alert %>
+    <div class="alert alert-danger alert-dismissable">
+      <i class="fa fa-ban"></i>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <b><%= alert %></b>
+    </div>
+  <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <%= link_to 'Neue Rasse', new_race_path, :class => 'btn btn-success btn-flat btn-sm' %>
+          <div class="box-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+              <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
 
-  <tbody>
-    <% @races.each do |race| %>
-      <tr>
-        <td><%= race.name %></td>
-        <td><%= link_to 'Show', race %></td>
-        <td><%= link_to 'Edit', edit_race_path(race) %></td>
-        <td><%= link_to 'Destroy', race, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Aktion</th>
+            </tr>
+            <% @races.each do |race| %>
+              <tr>
+                <td><%= race.id %></td>
+                <td><%= race.name %></td>
+                <td>
+                    <%= link_to race do %>
+                      <span class="btn btn-success btn-flat btn-xs"><i class="fa fa-eye"></i></span>
+                    <% end %>
+                    <%= link_to edit_race_path(race) do %>
+                      <span class="btn btn-primary btn-flat btn-xs"><i class="fa fa-edit"></i></span>
+                    <% end %>
+                    <%= link_to race, method: :delete, data: { confirm: 'Sind Sie sicher?' } do %>
+                      <span class="btn btn-danger btn-flat btn-xs"><i class="fa fa-trash-o"></i></span>
+                    <% end %>
+                </td>
+              </tr>
+              <% end %>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+  </div>
 
-<br>
+  <br>
 
-<%= link_to 'New Race', new_race_path %>
+
+</section><!-- /.content -->

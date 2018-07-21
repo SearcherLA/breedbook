@@ -10,13 +10,14 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="box-body">
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :race_name, class:"form-control", disabled:false %>
+    </div>
+  </div><!-- /.box-body -->
+  <div class="box-footer">
+    <%= link_to 'Abbrechen', races_path, :class => 'btn btn-default btn-flat btn-sm pull-left'%>
+    <%= form.submit 'Speichern', :class => "btn btn-success btn-flat pull-right"%>
   </div>
 <% end %>

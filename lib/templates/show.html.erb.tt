@@ -37,6 +37,10 @@
         <div class="box-body">
           <%= form_with(model: @race, local: true) do |form| %>
             <div class="field">
+              <% attributes.reject(&:password_digest?).each do |attribute| -%>
+                <%%= form.label :@<%=attribute.human_name %> %>:
+                <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+              <% end -%>
               <%= form.label :id %>
               <%= form.text_field :id, id: :race_id, class:"form-control", disabled:true %>
               <%= form.label :name %>
@@ -54,3 +58,9 @@
 
   <br>
 </section><!-- /.content -->
+
+<p id="notice"><%%= notice %></p>
+
+
+<%%= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>) %> |
+<%%= link_to 'Back', <%= index_helper %>_path %>

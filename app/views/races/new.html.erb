@@ -1,5 +1,41 @@
-<h1>New Race</h1>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Rassen
+    <small>Erstellen</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Stammdaten</a></li>
+    <li><%= link_to 'Rassen', races_path, :class => 'active'%></li>
+    <li class="active">Neu</li>
+  </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+  <% if notice %>
+    <div class="alert alert-success alert-dismissable">
+      <i class="fa fa-check"></i>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <b><%= notice %></b>
+    </div>
+  <% end %>
 
-<%= render 'form', race: @race %>
+  <% if alert %>
+    <div class="alert alert-danger alert-dismissable">
+      <i class="fa fa-ban"></i>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <b><%= alert %></b>
+    </div>
+  <% end %>
 
-<%= link_to 'Back', races_path %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-primary">
+        <div class="box-header">
+        </div>
+        <!-- /.box-header -->
+        <%= render 'form', race: @race %>
+      </div><!-- /.box -->
+    </div>
+  </div>
+</section><!-- /.content -->
