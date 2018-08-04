@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_20_150404) do
+ActiveRecord::Schema.define(version: 2018_08_04_063536) do
+
+  create_table "persontypes", force: :cascade do |t|
+    t.string "persontype"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "races", force: :cascade do |t|
     t.string "name"
