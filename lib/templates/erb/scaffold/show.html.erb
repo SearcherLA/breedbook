@@ -6,27 +6,27 @@
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Stammdaten</a></li>
-    <li><%= link_to '<%= plural_table_name %>', <%= plural_table_name %>_path, :class => 'active'%></li>
-    <li class="active"><%= @<%= singular_table_name %>.name %></li>
+    <li><%%= link_to '<%= plural_table_name %>', <%= plural_table_name %>_path, :class => 'active' %></li>
+    <li class="active"><%%= @<%= singular_table_name %>.name %></li>
   </ol>
 </section>
 <!-- Main content -->
 <section class="content">
-  <% if notice %>
+  <%% if notice %>
     <div class="alert alert-success alert-dismissable">
       <i class="fa fa-check"></i>
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <b><%= notice %></b>
+      <b><%%= notice %></b>
     </div>
-  <% end %>
+  <%% end %>
 
-  <% if alert %>
+  <%% if alert %>
     <div class="alert alert-danger alert-dismissable">
       <i class="fa fa-ban"></i>
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <b><%= alert %></b>
+      <b><%%= alert %></b>
     </div>
-  <% end %>
+  <%% end %>
 
   <div class="row">
     <div class="col-xs-12">
@@ -35,18 +35,18 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <%= form_with(model: @<%= singular_table_name %>, local: true) do |form| %>
+          <%%= form_with(model: @<%= singular_table_name %>, local: true) do |form| %>
             <div class="field">
               <% attributes.reject(&:password_digest?).each do |attribute| -%>
-                <%%= form.label :@<%=attribute.human_name %> %>:
+                <%%= form.label :<%=attribute.human_name %> %>:
                 <%%= form.text_field :<%= attribute.name %>, id: :<%= singular_table_name %>_<%= attribute.name %>, class:"form-control", disabled:true %>
               <% end -%>
             </div>
-          <% end %>
+          <%% end %>
         </div><!-- /.box-body -->
         <div class="box-footer">
-          <%= link_to 'Bearbeiten', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => 'btn btn-primary btn-flat btn-sm pull-right' %>
-          <%= link_to 'Zurück zur Übersicht', <%= index_helper %>_path, :class => 'btn btn-default btn-flat btn-sm pull-left'%>
+          <%%= link_to 'Bearbeiten', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => 'btn btn-primary btn-flat btn-sm pull-right' %>
+          <%%= link_to 'Zurück zur Übersicht', <%= index_helper %>_path, :class => 'btn btn-default btn-flat btn-sm pull-left'%>
         </div>
       </div><!-- /.box -->
     </div>
