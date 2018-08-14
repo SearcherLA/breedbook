@@ -63,3 +63,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'adminlte2-rails'
 gem 'jquery-rails'
+gem 'devise'
