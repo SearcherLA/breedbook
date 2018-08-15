@@ -15,4 +15,5 @@
 //= require activestorage
 //= require turbolinks
 //= require app
+//= require 'icheck'
 //= require_tree .

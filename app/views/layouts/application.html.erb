@@ -14,25 +14,26 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </head>
 
 <body class="skin-blue sidebar-mini fixed <%= params[:controller].parameterize %> <%= action_name %>">
   <div class="wrapper">
-
-    <%= render partial: 'layouts/header' %>
-
-    <%= render partial: 'layouts/sidebar' %>
-
+    <% if current_user %>
+      <%= render partial: 'layouts/header' %>
+      <%= render partial: 'layouts/sidebar' %>
+    <% end %>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <%= yield %>
     </div><!-- /.content-wrapper -->
 
     <%= render partial: 'layouts/footer' %>
-    <%= render partial: 'layouts/controlsidebar' %>
-
+    <% if current_user %>
+      <%= render partial: 'layouts/controlsidebar' %>
+    <% end %>
   </div><!-- ./wrapper -->
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
 </body>
 </html>
