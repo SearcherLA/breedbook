@@ -1,0 +1,51 @@
+<%= form_with(model: person, local: true) do |form| %>
+  <% if person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+      <% person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="box-body">
+    <div class="field">
+      <%= form.label :firstname, 'Vorname' %>
+      <%= form.text_field :firstname, class:"form-control" %>
+    </div>
+    <div class="field">
+      <%= form.label :lastname, 'Nachname' %>
+      <%= form.text_field :lastname, class:"form-control" %>
+    </div>
+    <div class="field">
+      <%= form.label :email, 'EMail' %>
+      <%= form.text_field :email, class:"form-control" %>
+    </div>
+    <div class="field">
+      <%= form.label :phone, 'Telefon' %>
+      <%= form.text_field :phone, class:"form-control" %>
+    </div>
+    <div class="field">
+      <%= form.label :street, 'Straße' %>
+      <%= form.text_field :street, class:"form-control" %>
+    </div>
+    <div class="field">
+      <%= form.label :PLZ %>
+      <%= form.text_field :PLZ, class:"form-control" %>
+    </div>
+    <div class="field">
+      <%= form.label :city, 'Ort' %>
+      <%= form.text_field :city, class:"form-control" %>
+    </div>
+    <div class="field">
+      <%= form.label :persontype_id %>
+      <%= form.collection_select(:persontype_id, Persontype.all.order(persontype: :asc), :id, :persontype, {}, {:class=> 'form-control'}) %>
+    </div>
+  </div><!-- /.box-body -->
+  <div class="box-footer">
+    <%= link_to 'Abbrechen', people_path, :class => 'btn btn-default btn-flat btn-sm pull-left'%>
+    <%= form.submit 'Speichern', :class => "btn btn-success btn-flat pull-right"%>
+  </div>
+<% end %>

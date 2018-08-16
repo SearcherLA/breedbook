@@ -1,13 +1,13 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Persontypen
-    <small>Anzeigen</small>
+    Personen
+    <small>Erstellen</small>
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Stammdaten</a></li>
-    <li><%= link_to 'Persontypen', persontypes_path, :class => 'active' %></li>
-    <li class="active"><%= @persontype.persontype %></li>
+    <li><%= link_to 'people', people_path, :class => 'active'%></li>
+    <li class="active">Neu</li>
   </ol>
 </section>
 <!-- Main content -->
@@ -30,25 +30,12 @@
 
   <div class="row">
     <div class="col-xs-12">
-      <div class="box box-success">
+      <div class="box box-primary">
         <div class="box-header">
         </div>
         <!-- /.box-header -->
-        <div class="box-body">
-          <%= form_with(model: @persontype, local: true) do |form| %>
-            <div class="field">
-              <%= form.label :Persontype %>:
-              <%= form.text_field :persontype, id: :persontype_persontype, class:"form-control", disabled:true %>
-            </div>
-          <% end %>
-        </div><!-- /.box-body -->
-        <div class="box-footer">
-          <%= link_to 'Bearbeiten', edit_persontype_path(@persontype), :class => 'btn btn-primary btn-flat btn-sm pull-right' %>
-          <%= link_to 'Zurück zur Übersicht', persontypes_path, :class => 'btn btn-default btn-flat btn-sm pull-left'%>
-        </div>
+        <%= render 'form', person: @person %>
       </div><!-- /.box -->
     </div>
   </div>
-
-  <br>
 </section><!-- /.content -->

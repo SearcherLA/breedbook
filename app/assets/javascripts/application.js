@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require app
 //= require 'icheck'
+//= require jquery.slimscroll.min
 //= require_tree .
